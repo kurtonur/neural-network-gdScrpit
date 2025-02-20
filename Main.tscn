@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://yjsaop3bt4u6"]
+
+[ext_resource type="PackedScene" uid="uid://d3ht4h0slbhsq" path="res://Trainning/T.tscn" id="2_d1qhq"]
+[ext_resource type="Script" path="res://World.gd" id="3"]
+[ext_resource type="Script" path="res://addons/neural_network/Scripts/NNDebugger.gd" id="3_74deu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pw2b8"]
+size = Vector2(20, 607)
+
+[node name="Main" type="Node"]
+
+[node name="World" type="Node" parent="."]
+script = ExtResource("3")
+foodSize = 16
+
+[node name="Timer" type="Timer" parent="World"]
+wait_time = 6.0
+autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="World"]
+position = Vector2(290, 162)
+zoom = Vector2(2, 2)
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="World"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/StaticBody2D"]
+position = Vector2(0, 163)
+shape = SubResource("RectangleShape2D_pw2b8")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="World/StaticBody2D"]
+position = Vector2(573, 172)
+shape = SubResource("RectangleShape2D_pw2b8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="World/StaticBody2D"]
+position = Vector2(294, 325)
+rotation = -1.57079
+shape = SubResource("RectangleShape2D_pw2b8")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="World/StaticBody2D"]
+position = Vector2(286, 0)
+rotation = -1.57079
+shape = SubResource("RectangleShape2D_pw2b8")
+
+[node name="T" parent="World" instance=ExtResource("2_d1qhq")]
+population = 25
+saveFile = "name2"
+
+[node name="NNDebugger" type="Node" parent="."]
+script = ExtResource("3_74deu")
+
+[connection signal="timeout" from="World/Timer" to="World" method="_on_Timer_timeout"]

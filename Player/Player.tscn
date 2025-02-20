@@ -1,0 +1,225 @@
+[gd_scene load_steps=18 format=3 uid="uid://s01pvq4k4jfk"]
+
+[ext_resource type="Texture2D" uid="uid://3dljitknk5i7" path="res://Assets/dinoCharactersVersion1.1/sheets/DinoSprites - mort.png" id="1"]
+[ext_resource type="Script" path="res://Player/Player.gd" id="2"]
+[ext_resource type="Script" path="res://addons/neural_network/Scripts/NeuralNetwork.gd" id="4"]
+[ext_resource type="Texture2D" uid="uid://cbrfw31nr7uhj" path="res://Assets/dinoCharactersVersion1.1/sheets/DinoSprites - tard.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://046fp47rscux" path="res://Assets/dinoCharactersVersion1.1/sheets/DinoSprites - vita.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://bc8kojec8vdmn" path="res://Assets/dinoCharactersVersion1.1/sheets/DinoSprites - doux.png" id="7"]
+[ext_resource type="Script" path="res://Player/Eyes.gd" id="7_gp1ya"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(14, 18)
+
+[sub_resource type="AtlasTexture" id="6"]
+atlas = ExtResource("1")
+region = Rect2(336, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="7"]
+atlas = ExtResource("7")
+region = Rect2(336, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="8"]
+atlas = ExtResource("5")
+region = Rect2(336, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="9"]
+atlas = ExtResource("6")
+region = Rect2(336, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="2"]
+atlas = ExtResource("1")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="10"]
+atlas = ExtResource("7")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="11"]
+atlas = ExtResource("5")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="12"]
+atlas = ExtResource("6")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("6")
+}, {
+"duration": 1.0,
+"texture": SubResource("7")
+}, {
+"duration": 1.0,
+"texture": SubResource("8")
+}, {
+"duration": 1.0,
+"texture": SubResource("9")
+}],
+"loop": true,
+"name": &"Dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("2")
+}, {
+"duration": 1.0,
+"texture": SubResource("10")
+}, {
+"duration": 1.0,
+"texture": SubResource("11")
+}, {
+"duration": 1.0,
+"texture": SubResource("12")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 2
+script = ExtResource("2")
+
+[node name="NeuralNetwork" type="Node" parent="."]
+script = ExtResource("4")
+layers = Array[int]([2, 2, 3, 2])
+fitness = null
+bestFitness = 500.0
+startRandomization = null
+learningRate = null
+mutationFunction = 4
+activationFuction = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("1")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("4")
+animation = &"Idle"
+
+[node name="LabelScore" type="Label" parent="."]
+offset_left = -5.0
+offset_top = 11.0
+offset_right = 5.0
+offset_bottom = 37.0
+text = "6"
+metadata/_edit_use_anchors_ = true
+
+[node name="LabelName" type="Label" parent="."]
+offset_left = -54.0
+offset_top = -36.0
+offset_right = 55.0
+offset_bottom = -10.0
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Eye" type="Node2D" parent="."]
+script = ExtResource("7_gp1ya")
+
+[node name="1" type="RayCast2D" parent="Eye"]
+target_position = Vector2(0, 100)
+collision_mask = 5
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="2" type="RayCast2D" parent="Eye"]
+target_position = Vector2(100, 0)
+collision_mask = 5
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="3" type="RayCast2D" parent="Eye"]
+target_position = Vector2(0, -100)
+collision_mask = 5
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="4" type="RayCast2D" parent="Eye"]
+target_position = Vector2(-100, 0)
+collision_mask = 5
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="5" type="RayCast2D" parent="Eye"]
+target_position = Vector2(-80, -72)
+collision_mask = 5
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="6" type="RayCast2D" parent="Eye"]
+target_position = Vector2(72, 80)
+collision_mask = 5
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="7" type="RayCast2D" parent="Eye"]
+target_position = Vector2(-80, 80)
+collision_mask = 5
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="8" type="RayCast2D" parent="Eye"]
+target_position = Vector2(72, -72)
+collision_mask = 5
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="9" type="RayCast2D" parent="Eye"]
+target_position = Vector2(88, -32)
+collision_mask = 5
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="10" type="RayCast2D" parent="Eye"]
+target_position = Vector2(32, -80)
+collision_mask = 5
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="11" type="RayCast2D" parent="Eye"]
+target_position = Vector2(-32, -72)
+collision_mask = 5
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="12" type="RayCast2D" parent="Eye"]
+target_position = Vector2(-80, -24)
+collision_mask = 5
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="13" type="RayCast2D" parent="Eye"]
+target_position = Vector2(72, 32)
+collision_mask = 5
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="14" type="RayCast2D" parent="Eye"]
+target_position = Vector2(32, 80)
+collision_mask = 5
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="15" type="RayCast2D" parent="Eye"]
+target_position = Vector2(-32, 80)
+collision_mask = 5
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="16" type="RayCast2D" parent="Eye"]
+target_position = Vector2(-80, 32)
+collision_mask = 5
+collide_with_areas = true
+collide_with_bodies = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
