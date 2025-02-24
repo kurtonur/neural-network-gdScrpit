@@ -87,7 +87,10 @@ script = ExtResource("2")
 [node name="NeuralNetwork" type="Node" parent="."]
 script = ExtResource("4")
 layers = Array[int]([2, 2, 3, 2])
+fitness = null
 bestFitness = 500.0
+startRandomization = null
+learningRate = null
 mutationFunction = 4
 activationFuction = 2
 

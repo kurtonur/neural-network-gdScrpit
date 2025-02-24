@@ -1,27 +1,27 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1740092258
+::res://::1740435026
 icon.svg::CompressedTexture2D::7456186824348942121::1670659576::1733187804::1::::<><>::
-Main.tscn::PackedScene::1704205312742389027::1735091494::0::1::::<><>::uid://d3ht4h0slbhsq::::res://Trainning/T.tscn<>res://World.gd<>res://addons/neural_network/Scripts/NNDebugger.gd
+Main.tscn::PackedScene::1704205312742389027::1740095522::0::1::::<><>::uid://d3ht4h0slbhsq::::res://Trainning/T.tscn<>res://World.gd<>res://addons/neural_network/Scripts/NNDebugger.gd
 README.md::TextFile::-1::1670659576::0::1::::<><>::
 World.gd::GDScript::-1::1702516458::0::1::::<>Node<>::
 ::res://addons/::1681336919
-::res://addons/neural_network/::1735088224
+::res://addons/neural_network/::1740094571
 icon.svg::CompressedTexture2D::8376607459091615384::1735088224::1735088224::1::::<><>::
-neural_network.gd::GDScript::-1::1696911250::0::1::::<>EditorPlugin<>::
-plugin.cfg::TextFile::-1::1670659576::0::1::::<><>::
-::res://addons/neural_network/Editor/::1735091495
-Neuron.tscn::PackedScene::272397815396628624::1735091494::0::1::::<><>::res://addons/neural_network/Editor/Scripts/neuron.gd
-NN_Debugger.tscn::PackedScene::1881702990376862148::1735091495::0::1::::<><>::res://addons/neural_network/Editor/Scripts/NN_Debugger.gd
-::res://addons/neural_network/Editor/Scripts/::1735090657
-Interface.gd::GDScript::-1::1670659576::0::1::::<>Control<>::
-neuron.gd::GDScript::-1::1733189075::0::1::::<>GraphNode<>::
-NN_Debugger.gd::GDScript::-1::1733196877::0::1::::<>Window<>::
-::res://addons/neural_network/Scripts/::1735091686
-Link.gd::GDScript::-1::1733187813::0::1::::Link<>Node<>res://addons/neural_network/icon.svg::
-NeuralNetwork.gd::GDScript::-1::1735091686::0::1::::NeuralNetwork<>Node<>res://addons/neural_network/icon.svg::
-Neuron.gd::GDScript::-1::1733195375::0::1::::Neuron<>Node<>res://addons/neural_network/icon.svg::
-NNDebugger.gd::GDScript::-1::1680903677::0::1::::NNDebugger<>Node<>res://addons/neural_network/icon.svg::
-::res://Assets/::1681336919
+neural_network.gd::GDScript::-1::1740094571::0::1::::<>EditorPlugin<>::
+plugin.cfg::TextFile::-1::1740094571::0::1::::<><>::
+::res://addons/neural_network/Editor/::1740095522
+Neuron.tscn::PackedScene::272397815396628624::1740095522::0::1::::<><>::res://addons/neural_network/Editor/Scripts/neuron.gd
+NN_Debugger.tscn::PackedScene::1881702990376862148::1740095522::0::1::::<><>::res://addons/neural_network/Editor/Scripts/NN_Debugger.gd
+::res://addons/neural_network/Editor/Scripts/::1740094571
+Interface.gd::GDScript::-1::1740094571::0::1::::<>Control<>::
+neuron.gd::GDScript::-1::1740094571::0::1::::<>GraphNode<>::
+NN_Debugger.gd::GDScript::-1::1740094571::0::1::::<>Window<>::
+::res://addons/neural_network/Scripts/::1740094571
+Link.gd::GDScript::-1::1740095396::0::1::::Link<>Node<>res://addons/neural_network/icon.svg::
+NeuralNetwork.gd::GDScript::-1::1740095518::0::1::::NeuralNetwork<>Node<>res://addons/neural_network/icon.svg::
+Neuron.gd::GDScript::-1::1740094885::0::1::::Neuron<>Node<>res://addons/neural_network/icon.svg::
+NNDebugger.gd::GDScript::-1::1740094571::0::1::::NNDebugger<>Node<>res://addons/neural_network/icon.svg::
+::res://Assets/::1740093664
 ::res://Assets/dinoCharactersVersion1.1/::1681336919
 changelog.txt::TextFile::-1::1670659576::0::1::::<><>::
 ::res://Assets/dinoCharactersVersion1.1/aseprite/::1681336919
@@ -34,7 +34,7 @@ DinoSprites - doux.png::CompressedTexture2D::2595555486920639785::1670659576::17
 DinoSprites - mort.png::CompressedTexture2D::1972165164202900936::1670659576::1733187804::1::::<><>::
 DinoSprites - tard.png::CompressedTexture2D::4878469016706368887::1670659576::1733187804::1::::<><>::
 DinoSprites - vita.png::CompressedTexture2D::1816480035690769959::1670659576::1733187804::1::::<><>::
-::res://Assets/Font/::1733187804
+::res://Assets/Font/::1740093683
 ._pixeldown.ttf::FontFile::3572884250860362898::1670659576::1733187804::1::::<><>::
 pixeldown.ttf::FontFile::2720821245327756857::1670659576::1733187804::1::::<><>::
 ::res://Assets/Fruits/::1733187804
@@ -152,13 +152,13 @@ tile032.png::CompressedTexture2D::3035392833022742245::1670659576::1733187804::1
 tile033.png::CompressedTexture2D::2042281568652991173::1670659576::1733187804::1::::<><>::
 tile034.png::CompressedTexture2D::6655541968179641818::1670659576::1733187804::1::::<><>::
 tile035.png::CompressedTexture2D::7803395947211900888::1670659576::1733187804::1::::<><>::
-::res://Food/::1735091495
-Food.gd::GDScript::-1::1735091027::0::1::::Food<>Node2D<>::
-Food.tscn::PackedScene::3947103194778800781::1735091495::0::1::::<><>::res://Food/Food.gd<>uid://fb38y8xw5gso::::res://Assets/Fruits/spritesheet-48.png
-::res://Player/::1735091495
-Eyes.gd::GDScript::-1::1733187813::0::1::::<>Node2D<>::
-Player.gd::GDScript::-1::1735091494::0::1::::<>CharacterBody2D<>::
-Player.tscn::PackedScene::1316615187095943552::1735091495::0::1::::<><>::uid://3dljitknk5i7::::res://Assets/dinoCharactersVersion1.1/sheets/DinoSprites - mort.png<>res://Player/Player.gd<>res://addons/neural_network/Scripts/NeuralNetwork.gd<>uid://cbrfw31nr7uhj::::res://Assets/dinoCharactersVersion1.1/sheets/DinoSprites - tard.png<>uid://046fp47rscux::::res://Assets/dinoCharactersVersion1.1/sheets/DinoSprites - vita.png<>uid://bc8kojec8vdmn::::res://Assets/dinoCharactersVersion1.1/sheets/DinoSprites - doux.png<>res://Player/Eyes.gd
+::res://Food/::1740095522
+Food.gd::GDScript::-1::1740094571::0::1::::Food<>Node2D<>::
+Food.tscn::PackedScene::3947103194778800781::1740095522::0::1::::<><>::res://Food/Food.gd<>uid://fb38y8xw5gso::::res://Assets/Fruits/spritesheet-48.png
+::res://Player/::1740095522
+Eyes.gd::GDScript::-1::1740094571::0::1::::<>Node2D<>::
+Player.gd::GDScript::-1::1740094571::0::1::::<>CharacterBody2D<>::
+Player.tscn::PackedScene::1316615187095943552::1740095522::0::1::::<><>::uid://3dljitknk5i7::::res://Assets/dinoCharactersVersion1.1/sheets/DinoSprites - mort.png<>res://Player/Player.gd<>res://addons/neural_network/Scripts/NeuralNetwork.gd<>uid://cbrfw31nr7uhj::::res://Assets/dinoCharactersVersion1.1/sheets/DinoSprites - tard.png<>uid://046fp47rscux::::res://Assets/dinoCharactersVersion1.1/sheets/DinoSprites - vita.png<>uid://bc8kojec8vdmn::::res://Assets/dinoCharactersVersion1.1/sheets/DinoSprites - doux.png<>res://Player/Eyes.gd
 ::res://Trainning/::1735088373
 T.gd::GDScript::-1::1735088373::0::1::::<>Node<>::
 T.tscn::PackedScene::9140206135224579912::1735088314::0::1::::<><>::res://Trainning/T.gd

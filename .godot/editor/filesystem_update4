@@ -1,5 +1,6 @@
-res://Player/Eyes.gd
-res://Food/Food.gd
 res://addons/neural_network/Scripts/NeuralNetwork.gd
+res://addons/neural_network/Editor/Scripts/Interface.gd
 res://addons/neural_network/Scripts/Link.gd
+res://addons/neural_network/Editor/Scripts/neuron.gd
+res://addons/neural_network/Editor/Scripts/NN_Debugger.gd
 res://addons/neural_network/Scripts/Neuron.gd
