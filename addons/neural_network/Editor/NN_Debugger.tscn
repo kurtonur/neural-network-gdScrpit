@@ -1,9 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://12rmxtoacfa7"]
 
-[ext_resource type="Script" path="res://addons/neural_network/Editor/Scripts/NN_Debugger.gd" id="1"]
+[ext_resource type="Script" uid="uid://dtbq2dt8jnk4d" path="res://addons/neural_network/Editor/Scripts/NN_Debugger.gd" id="1"]
 
 [node name="GameDebugger" type="Window"]
 handle_input_locally = false
+oversampling_override = 1.0
 position = Vector2i(25, 45)
 size = Vector2i(640, 360)
 exclusive = true

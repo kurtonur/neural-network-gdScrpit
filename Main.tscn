@@ -1,17 +1,22 @@
 [gd_scene load_steps=5 format=3 uid="uid://yjsaop3bt4u6"]
 
 [ext_resource type="PackedScene" uid="uid://d3ht4h0slbhsq" path="res://Trainning/T.tscn" id="2_d1qhq"]
-[ext_resource type="Script" path="res://World.gd" id="3"]
-[ext_resource type="Script" path="res://addons/neural_network/Scripts/NNDebugger.gd" id="3_74deu"]
+[ext_resource type="Script" uid="uid://4ntj4joqnful" path="res://World.gd" id="3"]
+[ext_resource type="Script" uid="uid://cn8hekwm40lpq" path="res://addons/neural_network/Scripts/NNDebugger.gd" id="3_74deu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pw2b8"]
-size = Vector2(20, 607)
+size = Vector2(40, 580)
 
 [node name="Main" type="Node"]
 
 [node name="World" type="Node" parent="."]
 script = ExtResource("3")
 foodSize = 16
+
+[node name="ColorRect" type="ColorRect" parent="World"]
+offset_right = 576.0
+offset_bottom = 328.0
+color = Color(0.27058825, 0.7058824, 0.7176471, 0.6313726)
 
 [node name="Timer" type="Timer" parent="World"]
 wait_time = 6.0
@@ -25,25 +30,56 @@ metadata/_edit_lock_ = true
 [node name="StaticBody2D" type="StaticBody2D" parent="World"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/StaticBody2D"]
-position = Vector2(0, 163)
+position = Vector2(-8, 168)
 shape = SubResource("RectangleShape2D_pw2b8")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="World/StaticBody2D"]
-position = Vector2(573, 172)
-shape = SubResource("RectangleShape2D_pw2b8")
+[node name="ColorRect" type="ColorRect" parent="World/StaticBody2D/CollisionShape2D"]
+offset_left = -20.0
+offset_top = -276.0
+offset_right = 20.0
+offset_bottom = 280.0
+color = Color(0.4862745, 0.15686275, 0.15686275, 1)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="World/StaticBody2D"]
-position = Vector2(294, 325)
-rotation = -1.57079
+position = Vector2(592, 160)
 shape = SubResource("RectangleShape2D_pw2b8")
+
+[node name="ColorRect" type="ColorRect" parent="World/StaticBody2D/CollisionShape2D2"]
+offset_left = -20.0
+offset_top = -276.0
+offset_right = 20.0
+offset_bottom = 280.0
+color = Color(0.4862745, 0.15686275, 0.15686275, 1)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="World/StaticBody2D"]
-position = Vector2(286, 0)
-rotation = -1.57079
+position = Vector2(288, -16)
+rotation = -1.5707941
 shape = SubResource("RectangleShape2D_pw2b8")
 
+[node name="ColorRect" type="ColorRect" parent="World/StaticBody2D/CollisionShape2D4"]
+offset_left = -20.0
+offset_top = -291.0263
+offset_right = 20.0
+offset_bottom = 288.8791
+color = Color(0.4862745, 0.15686275, 0.15686275, 1)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="World/StaticBody2D"]
+position = Vector2(296, 344)
+rotation = -1.5707941
+shape = SubResource("RectangleShape2D_pw2b8")
+
+[node name="ColorRect" type="ColorRect" parent="World/StaticBody2D/CollisionShape2D5"]
+offset_left = -20.0
+offset_top = -291.0263
+offset_right = 20.0
+offset_bottom = 288.8791
+color = Color(0.4862745, 0.15686275, 0.15686275, 1)
+metadata/_edit_lock_ = true
+
 [node name="T" parent="World" instance=ExtResource("2_d1qhq")]
-population = 25
+population = 15
 saveFile = "name2"
 
 [node name="NNDebugger" type="Node" parent="."]

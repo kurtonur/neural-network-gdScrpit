@@ -1,9 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://d3ht4h0slbhsq"]
 
-[ext_resource type="Script" path="res://Trainning/T.gd" id="2"]
+[ext_resource type="Script" uid="uid://cenojc1jv2lyq" path="res://Trainning/T.gd" id="2"]
 
 [node name="T" type="Node"]
 script = ExtResource("2")
+saveFile = "NewAITest"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

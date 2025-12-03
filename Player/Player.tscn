@@ -1,12 +1,12 @@
 [gd_scene load_steps=18 format=3 uid="uid://s01pvq4k4jfk"]
 
 [ext_resource type="Texture2D" uid="uid://3dljitknk5i7" path="res://Assets/dinoCharactersVersion1.1/sheets/DinoSprites - mort.png" id="1"]
-[ext_resource type="Script" path="res://Player/Player.gd" id="2"]
-[ext_resource type="Script" path="res://addons/neural_network/Scripts/NeuralNetwork.gd" id="4"]
+[ext_resource type="Script" uid="uid://duau4orilyqya" path="res://Player/Player.gd" id="2"]
+[ext_resource type="Script" uid="uid://cbw330patpond" path="res://addons/neural_network/Scripts/NeuralNetwork.gd" id="4"]
 [ext_resource type="Texture2D" uid="uid://cbrfw31nr7uhj" path="res://Assets/dinoCharactersVersion1.1/sheets/DinoSprites - tard.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://046fp47rscux" path="res://Assets/dinoCharactersVersion1.1/sheets/DinoSprites - vita.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://bc8kojec8vdmn" path="res://Assets/dinoCharactersVersion1.1/sheets/DinoSprites - doux.png" id="7"]
-[ext_resource type="Script" path="res://Player/Eyes.gd" id="7_gp1ya"]
+[ext_resource type="Script" uid="uid://beim7w75yviso" path="res://Player/Eyes.gd" id="7_gp1ya"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(14, 18)

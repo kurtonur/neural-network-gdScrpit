@@ -32,18 +32,18 @@ func initNetwork(neuralNetwork) -> void:
 		for neuron in range(neuralNetwork.layers[layer]):
 			var tempNeuronNode :GraphNode
 			if(layer == 0):
-				tempNeuronNode = AddNeuron(neuralNetwork.neurons[layer][neuron],Vector2(layer,neuron),Color.GOLDENROD)
+				tempNeuronNode = AddNeuron(neuralNetwork.neurons[layer][neuron],Vector2i(layer,neuron),Color.GOLDENROD)
 				tempNeuronNode.SetAsInput()
 				nodeNeurons.append(tempNeuronNode)
 			elif(layer == neuralNetwork.layers.size()-1):
-				tempNeuronNode = AddNeuron(neuralNetwork.neurons[layer][neuron],Vector2(layer,neuron),Color.BROWN)
+				tempNeuronNode = AddNeuron(neuralNetwork.neurons[layer][neuron],Vector2i(layer,neuron),Color.BROWN)
 				tempNeuronNode.SetAsOutput()
 			else:
-				tempNeuronNode = AddNeuron(neuralNetwork.neurons[layer][neuron],Vector2(layer,neuron),Color.FOREST_GREEN)
+				tempNeuronNode = AddNeuron(neuralNetwork.neurons[layer][neuron],Vector2i(layer,neuron),Color.FOREST_GREEN)
 			nodeNeurons.append(tempNeuronNode)
 	for link in neuralNetwork.links:
 		if link.status == Link.Active:
-			view.connect_node("NeuronNode_" + str(link.from_ID),0,"NeuronNode_" + str(link.to_ID),0)
+			view.connect_node("NeuronNode*" + str(link.from_ID),0,"NeuronNode*" + str(link.to_ID),0)
 		pass
 	run = true
 	
@@ -79,17 +79,13 @@ func initGroupNN() -> void:
 		pass
 	pass
 
-func On_Click_Neuron(NeuronNode) -> void:
-	#neuralNetwork.SetNeuronAction(NeuronNode.ID.x,NeuronNode.ID.y,NeuronNode.isActive)
-	pass
-
-func AddNeuron(neuron :Neuron,neuronID :Vector2 = Vector2.ZERO, color :Color = Color.WHITE) -> GraphNode:
+func AddNeuron(neuron :Neuron,neuronID :Vector2i = Vector2.ZERO, color :Color = Color.WHITE) -> GraphNode:
 	var neuronIns :GraphNode = neuronFile.instantiate()
 	neuronIns.SetData(neuron)
 	neuronIns.SetID(neuronID)
 	neuronIns.ChangeColor(color)
 	neuronIns.position_offset = neuronID * 200
-	neuronIns.name = "NeuronNode_" + str(neuronID)
+	neuronIns.name = "NeuronNode*" + str(neuronID)
 	view.add_child(neuronIns)
 	neuronIns.connect("On_Click",Callable(self,"On_Click_Neuron"))
 	return neuronIns
@@ -117,10 +113,10 @@ func _on_close_requested() -> void:
 	pass 
 
 func _on_view_connection_request(from_node, from_port, to_node, to_port):
-	
-	var splitFrom = (from_node as String).split("_")[1]
-	var splitTo = (to_node as String).split("_")[1]
-	
+
+	var splitFrom = (from_node as String).split("*")[1]
+	var splitTo = (to_node as String).split("*")[1]
+
 	for link in neuralNetwork.links:
 		if (str(link.from_ID) == splitFrom) &&  (str(link.to_ID) == splitTo):
 			neuralNetwork.neurons[link.from_ID.x][link.from_ID.y].links.erase(link)

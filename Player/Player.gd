@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 const StartHunger = 5
+const StartBreedingFood = 25
+
 enum{Alive,Pause,Death}
 
 @export var isPlayer: bool = false  
@@ -8,9 +10,12 @@ enum{Alive,Pause,Death}
 @export var AIFile :String = ""
 var direction :Vector2 = Vector2()
 
+
 var hunger :int = StartHunger
 var eaten :int = 0
 var status :int= Alive
+var breeding :int = 0
+var breedingFood :int = StartBreedingFood 
 
 @onready var animation :AnimatedSprite2D = get_node("AnimatedSprite2D") 
 @onready var hungerLabel :Label = get_node("LabelScore")
@@ -55,15 +60,18 @@ func _physics_process(delta):
 
 func PlayerMove():
 	var foodData = FoodData()
-	var result :Array = AI.Forward([foodData.x,foodData.y])
-	velocity = Vector2(result[0].value,result[1].value).normalized() * speed
+	var result :Array = AI.Forward([foodData.x, foodData.y])
+	var target_velocity = Vector2(result[0].value, result[1].value).normalized() * speed
+	# Interpolate current velocity towards target velocity for smooth movement
+	var lerp_factor = 0.15 # Adjust for smoothing
+	velocity = velocity.lerp(target_velocity, lerp_factor)
 	pass
 
 func EatFood():
 	hunger += 1
 	hungerLabel.text = str(hunger)
 	eaten +=1
-	Split()
+	Breed()
 	pass
 
 func _on_Timer_timeout():
@@ -89,7 +97,7 @@ func Dead():
 
 func SetAlive():
 	set_process(true)
-	position = Vector2(320/2,240/2)
+	position = Vector2(320.0/2.0,240.0/2.0)
 	eaten = 0
 	modulate.a = 1
 	AI.isReady = true
@@ -112,21 +120,21 @@ func FoodData() -> Vector2:
 		self.food = $Eye.get_object()
 		return Vector2.ZERO
 	
-
 func RandomSprite():
 	randomSprite = randi() % 4
 	animation.frame = randomSprite
 	pass
 
-func Split():
-	if hunger >= 10:
+func Breed():
+	if hunger >= breedingFood:
 		var temp :CharacterBody2D = load("res://Player/Player.tscn").instantiate()
+		breeding += 1
+		add_sibling(temp)
 		temp.global_position = global_position
-		
-		var parent = get_node("../")
-		if parent != null:
-			parent.add_child(temp)
+		temp.name = playerIAName.text + "-" + str(breeding)
+		temp.playerIAName.text = playerIAName.text + "-" + str(breeding)
 		temp.AI.CopyFrom(AI)
+		temp.AI.name = (playerIAName.text + "-" + str(breeding)).replace("p-","player")
 		temp.AI.Mutate()
 		hunger = 7
 		pass

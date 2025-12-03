@@ -1,6 +1,11 @@
-res://addons/neural_network/Scripts/NeuralNetwork.gd
-res://addons/neural_network/Editor/Scripts/Interface.gd
-res://addons/neural_network/Scripts/Link.gd
-res://addons/neural_network/Editor/Scripts/neuron.gd
+res://addons/neural_network/Editor/Neuron.tscn
+res://Player/Player.gd
+res://Player/Eyes.gd
+res://Trainning/T.tscn
+res://Trainning/T.gd
+res://addons/neural_network/Editor/NN_Debugger.tscn
 res://addons/neural_network/Editor/Scripts/NN_Debugger.gd
 res://addons/neural_network/Scripts/Neuron.gd
+res://addons/neural_network/Scripts/Link.gd
+res://Main.tscn
+res://Player/Player.tscn

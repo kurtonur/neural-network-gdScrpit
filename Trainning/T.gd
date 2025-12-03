@@ -81,12 +81,12 @@ func nextGen():
 	else:
 		bestAI = temp
 	
-	for i in range(population/4):
+	for i in range(population/4.0):
 		playerList[i].AI.SetNetworkData(bestAI.GetNetworkData())
-	for i in range(population*1/4,population*3/4):
+	for i in range(population*1/4.0,population*3/4.0):
 		playerList[i].AI.SetNetworkData(bestAI.GetNetworkData())
 		playerList[i].AI.Mutate()
-	for i in range(population*3/4,population):
+	for i in range(population*3/4.0,population):
 		playerList[i].AI.Cleaner()
 		playerList[i].AI.InitLayers([2,randi_range(2,8),randi_range(2,8),randi_range(2,8),2])
 		playerList[i].AI.Mutate()
