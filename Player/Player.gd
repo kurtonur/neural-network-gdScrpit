@@ -141,8 +141,7 @@ func Breed():
 	pass
 
 func _on_area_2d_area_entered(area):
-	if food == null:
-		if (area.get_parent() as Food).is_in_group("Food"):
-			self.food = area.get_parent()
-			pass
+	if (area.get_parent() as Food).is_in_group("Food"):
+		self.food = area.get_parent()
+		pass
 	pass

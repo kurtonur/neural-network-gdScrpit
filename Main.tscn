@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://yjsaop3bt4u6"]
+[gd_scene load_steps=6 format=3 uid="uid://yjsaop3bt4u6"]
 
 [ext_resource type="PackedScene" uid="uid://d3ht4h0slbhsq" path="res://Trainning/T.tscn" id="2_d1qhq"]
 [ext_resource type="Script" uid="uid://4ntj4joqnful" path="res://World.gd" id="3"]
 [ext_resource type="Script" uid="uid://cn8hekwm40lpq" path="res://addons/neural_network/Scripts/NNDebugger.gd" id="3_74deu"]
+[ext_resource type="PackedScene" uid="uid://s01pvq4k4jfk" path="res://Player/Player.tscn" id="3_cm0pq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pw2b8"]
 size = Vector2(40, 580)
@@ -16,7 +17,8 @@ foodSize = 16
 [node name="ColorRect" type="ColorRect" parent="World"]
 offset_right = 576.0
 offset_bottom = 328.0
-color = Color(0.27058825, 0.7058824, 0.7176471, 0.6313726)
+color = Color(0.28807688, 0.49621224, 0.5373629, 1)
+metadata/_edit_lock_ = true
 
 [node name="Timer" type="Timer" parent="World"]
 wait_time = 6.0
@@ -24,14 +26,16 @@ autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="World"]
 position = Vector2(290, 162)
-zoom = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="World"]
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/StaticBody2D"]
 position = Vector2(-8, 168)
 shape = SubResource("RectangleShape2D_pw2b8")
+metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="World/StaticBody2D/CollisionShape2D"]
 offset_left = -20.0
@@ -44,6 +48,7 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="World/StaticBody2D"]
 position = Vector2(592, 160)
 shape = SubResource("RectangleShape2D_pw2b8")
+metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="World/StaticBody2D/CollisionShape2D2"]
 offset_left = -20.0
@@ -57,6 +62,7 @@ metadata/_edit_lock_ = true
 position = Vector2(288, -16)
 rotation = -1.5707941
 shape = SubResource("RectangleShape2D_pw2b8")
+metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="World/StaticBody2D/CollisionShape2D4"]
 offset_left = -20.0
@@ -64,11 +70,14 @@ offset_top = -291.0263
 offset_right = 20.0
 offset_bottom = 288.8791
 color = Color(0.4862745, 0.15686275, 0.15686275, 1)
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="World/StaticBody2D"]
 position = Vector2(296, 344)
 rotation = -1.5707941
 shape = SubResource("RectangleShape2D_pw2b8")
+metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="World/StaticBody2D/CollisionShape2D5"]
 offset_left = -20.0
@@ -78,9 +87,15 @@ offset_bottom = 288.8791
 color = Color(0.4862745, 0.15686275, 0.15686275, 1)
 metadata/_edit_lock_ = true
 
+[node name="Player" parent="World" instance=ExtResource("3_cm0pq")]
+process_mode = 4
+visible = false
+position = Vector2(296, 168)
+AIFile = "TestAI"
+
 [node name="T" parent="World" instance=ExtResource("2_d1qhq")]
-population = 15
-saveFile = "name2"
+population = 150
+saveFile = "TestAI"
 
 [node name="NNDebugger" type="Node" parent="."]
 script = ExtResource("3_74deu")

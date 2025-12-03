@@ -4,7 +4,6 @@
 
 [node name="T" type="Node"]
 script = ExtResource("2")
-saveFile = "NewAITest"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
